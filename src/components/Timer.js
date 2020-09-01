@@ -91,11 +91,11 @@ export default class Timer extends Component {
                     csv += "\n";
             });
 
-            var hiddenElement = document.createElement('a');
-            hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-            hiddenElement.target = '_blank';
-            hiddenElement.download = 'idea list.csv';
-            hiddenElement.click();
+            // var hiddenElement = document.createElement('a');
+            // hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+            // hiddenElement.target = '_blank';
+            // hiddenElement.download = 'idea list.csv';
+            // hiddenElement.click();
 
         } catch (e){
             console.log('fail to download the idea list')
