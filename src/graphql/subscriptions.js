@@ -115,3 +115,30 @@ export const onDeleteDescription = /* GraphQL */ `
     }
   }
 `;
+export const onCreateWordLimit = /* GraphQL */ `
+  subscription OnCreateWordLimit {
+    onCreateWordLimit {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateWordLimit = /* GraphQL */ `
+  subscription OnUpdateWordLimit {
+    onUpdateWordLimit {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteWordLimit = /* GraphQL */ `
+  subscription OnDeleteWordLimit {
+    onDeleteWordLimit {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;

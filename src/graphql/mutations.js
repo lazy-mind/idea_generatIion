@@ -142,3 +142,39 @@ export const deleteDescription = /* GraphQL */ `
     }
   }
 `;
+export const createWordLimit = /* GraphQL */ `
+  mutation CreateWordLimit(
+    $input: CreateWordLimitInput!
+    $condition: ModelWordLimitConditionInput
+  ) {
+    createWordLimit(input: $input, condition: $condition) {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateWordLimit = /* GraphQL */ `
+  mutation UpdateWordLimit(
+    $input: UpdateWordLimitInput!
+    $condition: ModelWordLimitConditionInput
+  ) {
+    updateWordLimit(input: $input, condition: $condition) {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteWordLimit = /* GraphQL */ `
+  mutation DeleteWordLimit(
+    $input: DeleteWordLimitInput!
+    $condition: ModelWordLimitConditionInput
+  ) {
+    deleteWordLimit(input: $input, condition: $condition) {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;

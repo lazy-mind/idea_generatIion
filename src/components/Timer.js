@@ -56,8 +56,14 @@ export default class Timer extends Component {
             array_length = node_index.length
         }
 
-
-        const api_response = await API.graphql(graphqlOperation(createUserInfo, {input: obj}));
+        // Whether we disable the update to the database
+        var UPDATE_TO_DATABASE = true
+        if (UPDATE_TO_DATABASE){
+            console.log('Data is not submitted')
+            // const api_response = await API.graphql(graphqlOperation(createUserInfo, {input: obj}));
+        }else{
+            console.log('Data is not submitted beacause we disabled it')
+        }
 
         document.getElementById('root').innerHTML = ""
         // document.getElementById('orgChartContainer').innerHTML = "<h1 style='padding: 10px'>You finished the work, please copy your verification code: "+obj.success_code+"</h1>"

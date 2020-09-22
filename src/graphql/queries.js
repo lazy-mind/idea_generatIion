@@ -98,3 +98,28 @@ export const listDescriptions = /* GraphQL */ `
     }
   }
 `;
+export const getWordLimit = /* GraphQL */ `
+  query GetWordLimit($id: ID!) {
+    getWordLimit(id: $id) {
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listWordLimits = /* GraphQL */ `
+  query ListWordLimits(
+    $filter: ModelWordLimitFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listWordLimits(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        value
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

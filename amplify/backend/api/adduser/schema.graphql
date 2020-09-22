@@ -24,3 +24,7 @@ type Seedword @model{
 type Description @model {
   value: String
 }
+
+type WordLimit @model {
+  value: Int
+}

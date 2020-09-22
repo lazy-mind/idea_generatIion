@@ -81,6 +81,21 @@
                 return
             }
 
+            // sessionStorage.setItem("minimum_word_requirement", 10);
+            var minimum_word_requirement = sessionStorage.getItem("minimum_word_requirement")
+            // check if the idea meet the length requirement
+            if (idea_value.length<minimum_word_requirement){
+                var min_word_requirement_text = ""
+                min_word_requirement_text += "The input idea must have at least "+minimum_word_requirement+ " characters"
+                $("#idea_input_hint_more").html(min_word_requirement_text)
+                e.stopPropagation();
+                return
+            }else{
+
+            }
+
+
+
             new_node_id_to_scroll_to = Object.keys(nodes).length+1
             sessionStorage.setItem("latest_node_position", 'idea_content_'+new_node_id_to_scroll_to);
 
@@ -261,11 +276,24 @@
             });
 
             $("h2[contenteditable]").on('focus', function(e){
+                console.log('start editing')
+                sessionStorage.setItem("previous_recorded_answer", this.innerHTML);
                 self.recordClicks(4, this.getAttribute("value"))
                 // console.log(4, "edit", this.getAttribute("value"))
             });
 
             $("h2[contenteditable]").on('blur', function(e){
+                var minimum_word_requirement = sessionStorage.getItem("minimum_word_requirement")
+                if(this.innerHTML.length<minimum_word_requirement){
+                    var msg = "The input idea must have at least "+minimum_word_requirement+ " characters.\n"
+                    msg += "You edit does not meet the requirement:\n"
+                    msg += this.innerHTML
+                    alert(msg);
+                    this.innerHTML = sessionStorage.getItem("previous_recorded_answer")
+                }else{
+
+                }
+                console.log('Finish editing')
                 self.recordClicks(5, this.getAttribute("value"))
                 // console.log(5, "edit", this.getAttribute("value"))
                 // console.log("ending edit", this.getAttribute("value"))
@@ -281,6 +309,7 @@
         }
 
         this.startEdit = function(id){
+            console.log('Editing '+id)
             var inputElement = $('<input class="org-input" type="text" value="'+nodes[id].data.name+'"/>');
             $container.find('div[node-id='+id+'] h2').replaceWith(inputElement);
             var commitChange = function(){
