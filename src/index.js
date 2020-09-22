@@ -36,13 +36,13 @@ async function get_seed_word() {
         sessionStorage.setItem("description", desc_list[idx].value);
         console.log('Success: fetch description info')
 
-        const api_response3 = await API.graphql(graphqlOperation(listWordLimits));
-        var wordlimit_list = api_response3.data.listWordLimits.items
-        var idx = Math.floor(Math.random() * wordlimit_list.length)
-        sessionStorage.setItem("minimum_word_requirement", wordlimit_list[idx].value);
-        console.log('Success: fetch word limit info')
+        // const api_response3 = await API.graphql(graphqlOperation(listWordLimits));
+        // var wordlimit_list = api_response3.data.listWordLimits.items
+        // var idx = Math.floor(Math.random() * wordlimit_list.length)
+        // sessionStorage.setItem("minimum_word_requirement", wordlimit_list[idx].value);
+        // console.log('Success: fetch word limit info')
 
-        console.log(sessionStorage.getItem("minimum_word_requirement"))
+        // console.log(sessionStorage.getItem("minimum_word_requirement"))
         // console.log(sessionStorage)
 
         document.getElementById("orgChartContainer").style.visibility='visible'
