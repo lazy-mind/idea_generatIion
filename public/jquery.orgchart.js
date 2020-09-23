@@ -86,7 +86,7 @@
             // check if the idea meet the length requirement
             if (idea_value.match(/\w+(?:'\w+)*/g).length<minimum_word_requirement){
                 var min_word_requirement_text = ""
-                min_word_requirement_text += "The input idea must have at least "+minimum_word_requirement+ " characters"
+                min_word_requirement_text += "The input idea must have at least "+minimum_word_requirement+ " words"
                 $("#idea_input_hint_more").html(min_word_requirement_text)
                 console.log(min_word_requirement_text)
                 e.stopPropagation();
@@ -288,7 +288,7 @@
                 console.log(this.innerText)
                 console.log(this.innerText.match(/\w+(?:'\w+)*/g))
                 if(this.innerText.match(/\w+(?:'\w+)*/g).length<minimum_word_requirement){
-                    var msg = "The input idea must have at least "+minimum_word_requirement+ " characters.\n"
+                    var msg = "The input idea must have at least "+minimum_word_requirement+ " words.\n"
                     msg += "You edit does not meet the requirement:\n"
                     msg += this.innerText
                     alert(msg);
