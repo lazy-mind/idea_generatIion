@@ -227,7 +227,7 @@
               return Math.random().toString(36).substr(2, 6);
             };
 
-            const userInfo = { name: "study_1_launch",
+            const userInfo = { name: "2020-09-22-WordLimit-update",
                                 success_code: success_code(),
                                 invitation_code: sessionStorage.getItem("invitation_code"),
                                 node_index: node_id_data,
