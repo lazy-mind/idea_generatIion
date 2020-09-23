@@ -84,10 +84,11 @@
             // sessionStorage.setItem("minimum_word_requirement", 10);
             var minimum_word_requirement = sessionStorage.getItem("minimum_word_requirement")
             // check if the idea meet the length requirement
-            if (idea_value.length<minimum_word_requirement){
+            if (idea_value.match(/\w+(?:'\w+)*/g).length<minimum_word_requirement){
                 var min_word_requirement_text = ""
                 min_word_requirement_text += "The input idea must have at least "+minimum_word_requirement+ " characters"
                 $("#idea_input_hint_more").html(min_word_requirement_text)
+                console.log(min_word_requirement_text)
                 e.stopPropagation();
                 return
             }else{
@@ -277,19 +278,21 @@
 
             $("h2[contenteditable]").on('focus', function(e){
                 console.log('start editing')
-                sessionStorage.setItem("previous_recorded_answer", this.innerHTML);
+                sessionStorage.setItem("previous_recorded_answer", this.innerText);
                 self.recordClicks(4, this.getAttribute("value"))
                 // console.log(4, "edit", this.getAttribute("value"))
             });
 
             $("h2[contenteditable]").on('blur', function(e){
                 var minimum_word_requirement = sessionStorage.getItem("minimum_word_requirement")
-                if(this.innerHTML.length<minimum_word_requirement){
+                console.log(this.innerText)
+                console.log(this.innerText.match(/\w+(?:'\w+)*/g))
+                if(this.innerText.match(/\w+(?:'\w+)*/g).length<minimum_word_requirement){
                     var msg = "The input idea must have at least "+minimum_word_requirement+ " characters.\n"
                     msg += "You edit does not meet the requirement:\n"
-                    msg += this.innerHTML
+                    msg += this.innerText
                     alert(msg);
-                    this.innerHTML = sessionStorage.getItem("previous_recorded_answer")
+                    this.innerText = sessionStorage.getItem("previous_recorded_answer")
                 }else{
 
                 }

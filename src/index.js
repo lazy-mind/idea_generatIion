@@ -43,7 +43,7 @@ async function get_seed_word() {
         sessionStorage.setItem("minimum_word_requirement", wordlimit_list[idx].value);
         console.log('Success: fetch word limit info')
 
-        console.log(sessionStorage.getItem("minimum_word_requirement"))
+        // console.log(sessionStorage.getItem("minimum_word_requirement"))
         // console.log(sessionStorage)
 
         document.getElementById("orgChartContainer").style.visibility='visible'
