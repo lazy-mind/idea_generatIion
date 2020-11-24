@@ -227,7 +227,7 @@
               return Math.random().toString(36).substr(2, 6);
             };
 
-            const userInfo = { name: "2020-11-12-Soft-Launch-MH",
+            const userInfo = { name: "2020-11-24-Soft-Launch-MH",
                                 success_code: success_code(),
                                 invitation_code: sessionStorage.getItem("invitation_code"),
                                 node_index: node_id_data,
