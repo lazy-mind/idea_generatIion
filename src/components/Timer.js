@@ -59,7 +59,7 @@ export default class Timer extends Component {
         // Whether we disable the update to the database
         var UPDATE_TO_DATABASE = true
         if (UPDATE_TO_DATABASE){
-            console.log('Data is now submitted')
+            console.log('Data is now submitted ')
             const api_response = await API.graphql(graphqlOperation(createUserInfo, {input: obj}));
         }else{
             console.log('Data is not submitted beacause we disabled it')
